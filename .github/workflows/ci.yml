@@ -1,16 +1,17 @@
-name: CI
+name: CI/CD
 
 on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
 
 jobs:
-  test:
 
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,4 +33,13 @@ jobs:
         run: pytest
 
 
-        
+  deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Deploy to Render
+        run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
