@@ -25,3 +25,7 @@ git branch
 git add .
 git commit -m "Add version endpoint"
 git push -u origin feature/add-endpoint   Sube a GitHub
+
+nuevos cambios
+git checkout main
+git pull origin main
