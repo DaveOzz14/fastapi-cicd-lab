@@ -23,3 +23,9 @@ def get_user(user_id: int):
         "id": user_id,
         "name": "David"
     }
+
+@app.get("/version")
+def version():
+    return {
+        "version": "1.0.0"
+    }
