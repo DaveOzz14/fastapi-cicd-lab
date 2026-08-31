@@ -29,3 +29,9 @@ def version():
     return {
         "version": "1.0.0"
     }
+
+@app.get("/payments")
+def version():
+    return {
+        "Realizo el pago existosamente"
+    }
